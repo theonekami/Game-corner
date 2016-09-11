@@ -1,15 +1,17 @@
+#ifndef CHAR_RUN_H
+#define CHAR_RUN_H
 #include "KEV.h"
 #include "MAP.h"
 genmap track(20,4);
+char k;
 void intro()
 {
- char k,ch;
+ char ch;
  clrscr();
  cout<<"hello player...you are now playing letter run(press enter)\n";
  getch();
  cout<<"I'm Kami sama..first tell me a letter that describes you..\n";
  cin>>k;
- track.map_spwn(k,1,3);
  cout<<"oh i like that letter a lot....but my personel favorite is k\n";
  getch();
  cout<<"silly me! i forgot you are competeing\n";
@@ -23,12 +25,17 @@ void intro()
    getch();
    }
 }
-void main()
+
+void Char_run_start()
 {
 clock_t start,end;
 clrscr();
+char ch;
 intro();
+//do
+//{
 clrscr();
+track.map_spwn(k,1,3);
 track.disp();
 cout<<"press enter to start";
 getch();
@@ -42,4 +49,9 @@ getch();
 end=clock();
 cout<<"you took "<<(end-start)/CLK_TCK<<endl;
 getch();
+//cout<<"again?(y/n)"<<endl;
+//cin>>ch;
+//}while(ch=='y');
+getch();
 }
+#endif
