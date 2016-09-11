@@ -1,0 +1,45 @@
+#include "KEV.h"
+#include "MAP.h"
+genmap track(20,4);
+void intro()
+{
+ char k,ch;
+ clrscr();
+ cout<<"hello player...you are now playing letter run(press enter)\n";
+ getch();
+ cout<<"I'm Kami sama..first tell me a letter that describes you..\n";
+ cin>>k;
+ track.map_spwn(k,1,3);
+ cout<<"oh i like that letter a lot....but my personel favorite is k\n";
+ getch();
+ cout<<"silly me! i forgot you are competeing\n";
+ getch();
+ cout<<"would you like to read the tutorial?...(y/n)\n";
+ cin>>ch;
+ if(ch=='y')
+   {
+   clrscr();
+   cout<<"press any button to go forward...\n and you will know when it's over...it's that simple....\n";
+   getch();
+   }
+}
+void main()
+{
+clock_t start,end;
+clrscr();
+intro();
+clrscr();
+track.disp();
+cout<<"press enter to start";
+getch();
+start=clock();
+while(!(track.move_down()))
+{
+clrscr();
+track.disp();
+getch();
+}
+end=clock();
+cout<<"you took "<<(end-start)/CLK_TCK<<endl;
+getch();
+}
